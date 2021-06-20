@@ -1,7 +1,32 @@
 package org.example.prototype;
 
-public class Product implements Cloneable{
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
+
+
+/**
+ * Prototype
+ *
+ * Use case:
+ * when code should not depend on object, which needs to be cloned, of a concrete class
+ *
+ * Pros:
+ * 1. copy object without coupling with concrete class
+ * 2. prevent duplicate codes
+ * 3. ease of constructing complex object
+ */
+
+/**
+ * Serializable not necessary
+ */
+public class Product implements Cloneable, Serializable {
+
+  private static final long serialVersionUID = 42L;
   private String part1;
   private String part2;
   private int part3;
@@ -24,7 +49,44 @@ public class Product implements Cloneable{
 
   @Override
   protected Object clone() throws CloneNotSupportedException {
-    return super.clone();
+
+    /**
+     * "deep clone" and achieve independent
+     * version 1 using Cloneable interface
+     */
+//    Product clone = (Product) super.clone();
+//    BaseInfo cloneBaseInfo = ((BaseInfo) baseInfo.clone());
+//    clone.setBaseInfo(cloneBaseInfo);
+//    return clone;
+
+    /**
+     * version 2: using Serializable interface, not recommended,  more expensive
+     */
+
+    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+    try (ObjectOutputStream oos = new ObjectOutputStream(byteArrayOutputStream)) {
+      oos.writeObject(this);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+
+    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(
+        byteArrayOutputStream.toByteArray());
+
+    Product object = null;
+    try (ObjectInputStream ois = new ObjectInputStream(byteArrayInputStream)) {
+      object = (Product) ois.readObject();
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
+
+    return object;
+
   }
 
   public String getPart1() {

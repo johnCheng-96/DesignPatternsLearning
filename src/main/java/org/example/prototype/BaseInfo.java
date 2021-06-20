@@ -1,6 +1,14 @@
 package org.example.prototype;
 
-public class BaseInfo {
+import java.io.Serializable;
+
+/**
+ * impl Cloneable to make independent of clone objects and original object
+ * as well as ensuring "deep clone" / "deep copying"
+ * Serializable not necessary
+ */
+
+public class BaseInfo implements Cloneable, Serializable {
 
   private String companyName;
 
@@ -10,6 +18,12 @@ public class BaseInfo {
 
   public String getCompanyName() {
     return companyName;
+  }
+
+  // for "deep clone"
+  @Override
+  protected Object clone() throws CloneNotSupportedException {
+    return super.clone();
   }
 
   public void setCompanyName(String companyName) {
