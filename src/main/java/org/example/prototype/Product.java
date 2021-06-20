@@ -19,6 +19,9 @@ import java.io.Serializable;
  * 1. copy object without coupling with concrete class
  * 2. prevent duplicate codes
  * 3. ease of constructing complex object
+ *
+ * Use cases in JDK:
+ * ArrayList
  */
 
 /**
