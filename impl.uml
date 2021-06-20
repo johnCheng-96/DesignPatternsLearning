@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>abstractFactory.impl</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">abstractFactory.impl.MysqlCommand</node>
+    <node x="418.0" y="0.0">abstractFactory.impl.OracleCommand</node>
+    <node x="621.0" y="0.0">abstractFactory.impl.OracleConnect</node>
+    <node x="80.75" y="105.0">abstractFactory.impl.MysqlDatabaseUtils</node>
+    <node x="501.25" y="105.0">abstractFactory.impl.OracleDatabaseUtils</node>
+    <node x="198.0" y="0.0">abstractFactory.impl.MysqlConnect</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="abstractFactory.impl.MysqlDatabaseUtils" target="abstractFactory.impl.MysqlCommand" relationship="CREATE">
+      <point x="-95.75" y="-38.5" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="abstractFactory.impl.OracleDatabaseUtils" target="abstractFactory.impl.OracleConnect" relationship="CREATE">
+      <point x="98.25" y="-38.5" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="abstractFactory.impl.OracleDatabaseUtils" target="abstractFactory.impl.OracleCommand" relationship="CREATE">
+      <point x="-98.25" y="-38.5" />
+      <point x="0.0" y="27.5" />
+    </edge>
+    <edge source="abstractFactory.impl.MysqlDatabaseUtils" target="abstractFactory.impl.MysqlConnect" relationship="CREATE">
+      <point x="95.75" y="-38.5" />
+      <point x="0.0" y="27.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="true" x="395.5" y="91.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>public</VISIBILITY>
+</Diagram>
+
