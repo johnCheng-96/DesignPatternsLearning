@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9b6fc9ee-6948-4358-ab0b-c029a1967145" name="unixemea.fdmgroup.com" url="http://unixemea.fdmgroup.com">
+        <fileTransfer rootFolder="/home/local/FDMGROUP/john.cheng" accessType="SFTP" host="unixemea.fdmgroup.com" port="22" sshConfigId="aa79d5cf-6519-463f-9252-1633ebbde2d3" sshConfig="john.cheng@unixemea.fdmgroup.com:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
